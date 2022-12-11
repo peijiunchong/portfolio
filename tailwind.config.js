@@ -7,7 +7,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        butons: "burtons",
+        burtons: "burtons",
+      },
+      colors:{
+        'ivory-white': '#FFFFF0',
+        'azure': '#9CB2B1',
+        'dusty-rose': '#C9A9A6',
+        'old-red': '#AC3834'
       }
     },
   },

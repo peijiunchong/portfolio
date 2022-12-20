@@ -23,3 +23,9 @@ a {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
 }
+
+@layer components {
+  .heroButton {
+    @apply px-6 py-2 tracking-widest text-gray-500 rounded-full uppercase transition-all border border-[#242424] hover:border-red-300 hover:text-white
+  }
+}

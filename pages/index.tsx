@@ -1,44 +1,77 @@
 import Head from "next/head";
-import {
-  AiFillLinkedin,
-  AiFillGithub,
-  AiFillMail,
-} from "react-icons/ai";
-import { BsFillMoonStarsFill } from "react-icons/bs";
-import { useState } from "react";
 import Header from "../components/Header"; 
 import Hero from "../components/Hero";
 import About from "../components/About"
 import WorkExperience from "../components/WorkExperience";
+import Skills from "../components/Skills";
+import Projects from "../components/Projects";
+import ContactMe from "../components/ContactMe";
+import Education from "../components/Education";
+import Link from 'next/link';
+import { GetStaticProps } from "next";
+import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchExperience } from "../utils/fetchExperience";
+import { fetchProjects } from "../utils/fetchProjects";
+import { fetchSocials } from "../utils/fetchSocials";
+import { fetchSkills } from "../utils/fetchSkills";
+import { urlFor } from "../sanity";
 
-export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
+type Props = {
+  pageInfo: PageInfo
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+}
+
+const Home = ({pageInfo, experiences, skills, projects, socials}:Props) => {
+  // const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
+    scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
         <title>CPJ's Portfolio</title>
       </Head>
 
-      <Header />
+      <Header socials={socials}/>
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo}/>
       </section>
 
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo}/>
+      </section>
+
+      <section id="education" className="snap-center">
+        <Education />
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience /> 
+        <WorkExperience experiences={experiences}/> 
       </section>
 
-      {/* Skills */}
+      <section id="skills" className="snap-center">
+        <Skills skills={skills}/>
+      </section>
 
-      {/* Projects */}
+      <section id="projects" className="snap-center">
+        <Projects projects={projects} />
+      </section>
 
-      {/* Contact Me */}
+      <section id="contact" className="snap-center">
+        <ContactMe></ContactMe>
+      </section>
+
+      <Link href="#hero" className="snap-center">
+        <footer className="sticky top-0 bottom-5 w-full cursor-pointer">
+          <div className="flex items-center justify-center">
+            <img src={urlFor(pageInfo?.profilePic).url()} alt="" className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"/>
+          </div>
+        </footer>
+      </Link>
 
       {/* <main className=" bg-ivory-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <section className="min-h-screen">
@@ -147,4 +180,30 @@ export default function Home() {
       </main> */}
     </div>
   );
+}
+
+export default Home;
+
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const skills: Skill[] = await fetchSkills();
+  const experiences: Experience[] = await fetchExperience();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+  return {
+    props: {
+      pageInfo,
+      skills,
+      experiences,
+      projects,
+      socials
+    },
+    // next.js will attempt to re-generate the page: 
+    // - when a request comes in
+    // - at most once every 10 seconds
+    revalidate: 10
+  }
 }

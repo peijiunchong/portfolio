@@ -1,8 +1,14 @@
 import React from 'react'
-import { SocialIcon } from 'react-social-icons';
 import { motion } from "framer-motion"
+import Link from 'next/link';
+import { SocialIcon } from 'react-social-icons';
+import { Social } from '../typings';
 
-function Header() {
+type Props = {
+    socials: Social[];
+}
+
+function Header({socials}:Props) {
   return (
     <header className='sticky top-0 mx-auto flex items-start justify-between max-w-7xl p-5 z-20 xl:items-center'>
         <motion.div 
@@ -10,10 +16,12 @@ function Header() {
             animate={{x:0, opacity:1, scale: 1}} 
             transition={{duration:1}}
             className='flex flex-row items-center'
-        >
-            <SocialIcon url="https://github.com/peijiunchong" fgColor='gray' bgColor='transparent'/>
-            <SocialIcon url="https://github.com/peijiunchong" fgColor='gray' bgColor='transparent'/>
-            <SocialIcon url="https://github.com/peijiunchong" fgColor='gray' bgColor='transparent'/>
+        >  
+            {
+                socials.map((social) => (
+                    <SocialIcon key={social._id} url={social.url} fgColor='gray' bgColor='transparent'/>
+                ))
+            }
         </motion.div>
 
         <motion.div 
@@ -23,7 +31,9 @@ function Header() {
             className='flex flex-row items-center text-gray-300 cursor-pointer'
         >
             <SocialIcon className='cursor-pointer' network='email' fgColor='gray' bgColor='transparent'/>
-            <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get In Touch</p>
+            <Link href="#contact">
+                <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get In Touch</p>
+            </Link>
         </motion.div>
     </header>
   )

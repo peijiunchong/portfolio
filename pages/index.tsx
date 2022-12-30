@@ -9,23 +9,25 @@ import ContactMe from "../components/ContactMe";
 import Education from "../components/Education";
 import Link from 'next/link';
 import { GetStaticProps } from "next";
-import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { Experience, Education as EducationType, PageInfo, Project, Skill, Social } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperience } from "../utils/fetchExperience";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchSkills } from "../utils/fetchSkills";
-import { urlFor } from "../sanity";
+import { fetchEducation } from "../utils/fetchEducation";
+import { FiArrowUp } from "react-icons/fi";
 
 type Props = {
-  pageInfo: PageInfo
+  pageInfo: PageInfo;
+  educations: EducationType[];
   experiences: Experience[];
   skills: Skill[];
   projects: Project[];
   socials: Social[];
 }
 
-const Home = ({pageInfo, experiences, skills, projects, socials}:Props) => {
+const Home = ({pageInfo, educations, experiences, skills, projects, socials}:Props) => {
   // const [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -46,7 +48,7 @@ const Home = ({pageInfo, experiences, skills, projects, socials}:Props) => {
       </section>
 
       <section id="education" className="snap-center">
-        <Education />
+        <Education educations={educations}/>
       </section>
 
       <section id="experience" className="snap-center">
@@ -66,9 +68,9 @@ const Home = ({pageInfo, experiences, skills, projects, socials}:Props) => {
       </section>
 
       <Link href="#hero" className="snap-center">
-        <footer className="sticky top-0 bottom-5 w-full cursor-pointer">
+        <footer className="sticky top-0 bottom-5 w-full cursor-pointer z-20">
           <div className="flex items-center justify-center">
-            <img src={urlFor(pageInfo?.profilePic).url()} alt="" className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"/>
+          <FiArrowUp className="h-10 w-10 rounded-full filter text-gray-600 hover:text-white cursor-pointer"/>
           </div>
         </footer>
       </Link>
@@ -190,6 +192,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const skills: Skill[] = await fetchSkills();
   const experiences: Experience[] = await fetchExperience();
+  const educations: EducationType[] = await fetchEducation();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
 
@@ -198,6 +201,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       pageInfo,
       skills,
       experiences,
+      educations,
       projects,
       socials
     },

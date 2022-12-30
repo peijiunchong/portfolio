@@ -39,6 +39,17 @@ export interface Skill extends SanityBody {
     title: string;
 }
 
+export interface Education extends SanityBody {
+    _type: "education";
+    courseTitle: string;
+    schoolImage: Image;
+    school: string
+    dateStarted: Date;
+    dateEnded: Date;
+    isCurrentlyStudyingHere: boolean;
+    points: string[];
+}
+
 export interface Experience extends SanityBody {
     _type: "experience";
     comapny: string;

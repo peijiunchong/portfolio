@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import Image from 'next/image'
-import profilePic from "../public/profile_pic.png";
-import reactLogo from "../public/react.png"
 import { Experience } from '../typings';
 import { urlFor } from '../sanity';
-import { format } from 'date-fns';
 
 type Props = {
     experience: Experience;

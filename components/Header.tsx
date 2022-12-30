@@ -30,9 +30,7 @@ function Header({socials}:Props) {
             transition={{duration:1}}
             className='flex flex-row items-center text-gray-300 cursor-pointer'
         >
-            <Link href="#contact">
-                <SocialIcon className='cursor-pointer' network='email' fgColor='gray' bgColor='transparent'/>
-            </Link>
+            <SocialIcon className='cursor-pointer' network='email' fgColor='gray' bgColor='transparent'/>
             <Link href="#contact">
                 <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get In Touch</p>
             </Link>

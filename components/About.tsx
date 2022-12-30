@@ -1,7 +1,5 @@
 import React from 'react'
 import { motion } from "framer-motion"
-import Image from 'next/image'
-import profilePic from "../public/profile_pic.png";
 import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
@@ -25,7 +23,9 @@ function About({pageInfo}: Props) {
             // viewport={{once:true}}
             className="flex-shrink-0 object-cover px-auto mx-auto justify-center "
         >
-            <img src={urlFor(pageInfo?.profilePic).url()} alt="" className='w-80 h-80 relative rounded-full mx-10 -mt-5 max-md:h-40 max-md:w-40 border-[2px] max-md:top-20 border-white bg-ivory-white ' />
+            { pageInfo?.profilePic && (
+                <img src={urlFor(pageInfo?.profilePic).url()} alt="" className='w-80 h-80 relative rounded-full mx-10 -mt-5 max-md:h-40 max-md:w-40 border-[2px] max-md:top-20 border-white bg-ivory-white ' />
+            )}
         </motion.div>
 
         <motion.div 

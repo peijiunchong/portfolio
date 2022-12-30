@@ -26,16 +26,22 @@ function ExperienceCard({experience}: Props) {
             <p className='font-bold text-2xl mt-1'>Company Name</p>
             <div className='flex space-x-2 my-2'>
                 {
-                    experience.technologies.map((technology, i) => (
-                        <img key={i} alt="" src={urlFor(technology?.image).url()} className="rounded-full h-10 w-20"></img>
-                    ))
+                    experience.technologies?.map((technology, i) => {
+                        return (
+                            <div>
+                                { technology.image && (
+                                    <img key={i} alt="" src={urlFor(technology?.image).url()} className="rounded-full h-10 w-20"></img>
+                                )}
+                            </div>
+                        )
+                    })
                 }
             </div>
             <p className='uppercase py-5 text-gray-300'>{new Date(experience.dateStarted).toDateString()} - {experience.isCurrentlyWorkingHere? "Present" : new Date(experience.dateEnded).toDateString()}</p>
             <div className=' overflow-y-auto h-80 scrollbar pr-5 scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
                 <ul className='list-disc space-y-4 ml-5 text-lg w-4/5'>
                     {
-                        experience.points.map((summaryPoint, i) => (
+                        experience.points?.map((summaryPoint, i) => (
                             <li key={i}>{summaryPoint}</li>
                         ))
                     }

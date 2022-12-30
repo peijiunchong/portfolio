@@ -9,7 +9,7 @@ type Props = {
   pageInfo: PageInfo
 }
 
-function Hero({pageInfo}) {
+function Hero({pageInfo}: Props) {
     const [text, count] = useTypewriter({
         words: [
           `Hi, my name's ${pageInfo?.name}`
@@ -21,12 +21,14 @@ function Hero({pageInfo}) {
   return (
     <div className='h-screen flex flex-col space-y-10 justify-center items-center text-center overflow-hidden pt-[200px]'>
         <BackgroundCircles />
-        <img 
+        { pageInfo?.profilePic && (
+          <img 
           className='relative rounded-full h-32 w-32 mx-auto object-cover' 
           src={urlFor(pageInfo?.profilePic).url()}
           alt=""/>
+        )}
         <div className='z-20'>
-          <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{pageInfo.role}</h2>
+          <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
           <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
               <span>{text}</span>
               <Cursor cursorColor="#F7AB0A"></Cursor>

@@ -21,7 +21,7 @@ function Projects({projects}: Props) {
 
             <div className='elative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/50'>
                 {
-                    projects.map((project, i) => (
+                    projects?.map((project, i) => (
                         <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-10
                             items-center justify-center p-20 md:p-44' key={i}>
                             <motion.div 
@@ -30,7 +30,11 @@ function Projects({projects}: Props) {
                                 whileInView={{opacity:1, y:0}}
                                 viewport={{once:true}}
                             >
-                                <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-96'/>
+                                {
+                                    project.image && (
+                                        <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-96'/>
+                                    )
+                                }
                             </motion.div>
 
                             <div className='space-y-10 md:px-10 max-w-6xl'>

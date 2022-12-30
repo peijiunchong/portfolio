@@ -26,7 +26,9 @@ function Education({educations}:Props) {
                             <li className="w-screen flex-shrink-0 snap-center flex flex-col space-y-10
                             items-center justify-evenly p-20 md:p-44" key={i}>
                                 <div className="mt-10 sm:pr-8 flex flex-col items-center text-center">
-                                    <img src={urlFor(education?.schoolImage).url()} alt="" className=" h-56 w-96 p-2"/>
+                                    { education.schoolImage && (
+                                        <img src={urlFor(education?.schoolImage).url()} alt="" className=" h-56 w-96 p-2"/>
+                                    )}
                                     <h4 className='text-5xl font-semibold text-center py-8'>
                                         {education.courseTitle} 
                                     </h4>
@@ -35,7 +37,7 @@ function Education({educations}:Props) {
                                     </h5>
                                     <ul>
                                         {
-                                            education.points.map((point, i) => (
+                                            education.points?.map((point, i) => (
                                                 <li key={i} className="max-md:text-base text-xl text-start list-disc py-3 font-normal text-gray-500 dark:text-gray-400">{point}</li>
                                             ))
                                         }

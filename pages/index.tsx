@@ -17,6 +17,8 @@ import { fetchSocials } from "../utils/fetchSocials";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchEducation } from "../utils/fetchEducation";
 import { FiArrowUp } from "react-icons/fi";
+import { sanityClient } from "../sanity";
+import groq from "groq";
 
 type Props = {
   pageInfo: PageInfo;
@@ -189,12 +191,16 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
 
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const skills: Skill[] = await fetchSkills();
-  const experiences: Experience[] = await fetchExperience();
-  const educations: EducationType[] = await fetchEducation();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  const pageInfo: PageInfo = await sanityClient.fetch(groq`*[_type == 'pageInfo'] [0]`);
+  const skills: Skill[] = await sanityClient.fetch(groq`*[_type == 'skill']`);
+  const experiences: Experience[] = await sanityClient.fetch(groq`*[_type == 'experience']`);
+  const educations: EducationType[] = await sanityClient.fetch(groq`*[_type == 'education']`);
+  const projects: Project[] = await sanityClient.fetch(groq`*[_type == 'project'] {
+      ...,
+      technologies[] ->
+  }
+`);
+  const socials: Social[] = await sanityClient.fetch(groq`*[_type == 'social']`);
 
   return {
     props: {

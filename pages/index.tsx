@@ -30,8 +30,6 @@ type Props = {
 }
 
 const Home = ({pageInfo, educations, experiences, skills, projects, socials}:Props) => {
-  // const [darkMode, setDarkMode] = useState(false);
-
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
     scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
@@ -191,16 +189,12 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
 
-  const pageInfo: PageInfo = await sanityClient.fetch(groq`*[_type == 'pageInfo'] [0]`);
-  const skills: Skill[] = await sanityClient.fetch(groq`*[_type == 'skill']`);
-  const experiences: Experience[] = await sanityClient.fetch(groq`*[_type == 'experience']`);
-  const educations: EducationType[] = await sanityClient.fetch(groq`*[_type == 'education']`);
-  const projects: Project[] = await sanityClient.fetch(groq`*[_type == 'project'] {
-      ...,
-      technologies[] ->
-  }
-`);
-  const socials: Social[] = await sanityClient.fetch(groq`*[_type == 'social']`);
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const skills: Skill[] = await fetchSkills();
+  const experiences: Experience[] = await fetchExperience();
+  const educations: EducationType[] = await fetchEducation();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
 
   return {
     props: {

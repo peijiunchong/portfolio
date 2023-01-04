@@ -8,9 +8,13 @@ const query = groq`
     }
 `
 
+type Data = {
+    resumeURL: String
+}
+
 export default async function handler(
     req:NextApiRequest, 
-    res:NextApiResponse) 
+    res:NextApiResponse<Data>) 
 {
     const resumeURL = await sanityClient.fetch(query);
 

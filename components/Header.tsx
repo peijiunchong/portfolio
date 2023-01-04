@@ -2,13 +2,15 @@ import React from 'react'
 import { motion } from "framer-motion"
 import Link from 'next/link';
 import { SocialIcon } from 'react-social-icons';
-import { Social } from '../typings';
+import { PageInfo, Social } from '../typings';
 
 type Props = {
     socials: Social[];
+    resumeURL: String;
 }
 
-function Header({socials}:Props) {
+function Header({socials, resumeURL}:Props) {
+
   return (
     <header className='sticky top-0 mx-auto flex items-start justify-between max-w-7xl p-5 z-20 xl:items-center'>
         <motion.div 
@@ -21,6 +23,9 @@ function Header({socials}:Props) {
                 socials?.map((social) => (
                     <SocialIcon key={social._id} url={social.url} fgColor='gray' bgColor='transparent'/>
                 ))
+            }
+            {
+                <a href={`${resumeURL}?dl=ChongPeiJiun_Resume.pdf`}>Resume</a>
             }
         </motion.div>
 

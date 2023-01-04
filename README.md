@@ -1,2 +1,2 @@
 Deployed on Netlify
-https://main--peijiun-portfolio.netlify.app/
+https://peijiun-portfolio.netlify.app

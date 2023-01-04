@@ -49,5 +49,10 @@ export default defineType({
       type: 'array',
       of: [{title: 'Social media', type: 'social'}]
     },
+    {
+      name: 'resume',
+      title: 'Resume',
+      type: 'file'
+    }
   ],
 })

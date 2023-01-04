@@ -17,6 +17,7 @@ import { fetchSocials } from "../utils/fetchSocials";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchEducation } from "../utils/fetchEducation";
 import { FiArrowUp } from "react-icons/fi";
+import { fetchResume } from "../utils/fetchResume";
 
 type Props = {
   pageInfo: PageInfo;
@@ -25,9 +26,10 @@ type Props = {
   skills: Skill[];
   projects: Project[];
   socials: Social[];
+  resumeURL: String;
 }
 
-const Home = ({pageInfo, educations, experiences, skills, projects, socials}:Props) => {
+const Home = ({pageInfo, educations, experiences, skills, projects, socials, resumeURL}:Props) => {
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
     scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
@@ -35,7 +37,7 @@ const Home = ({pageInfo, educations, experiences, skills, projects, socials}:Pro
         <title>CPJ's Portfolio</title>
       </Head>
 
-      <Header socials={socials}/>
+      <Header socials={socials} resumeURL={resumeURL}/>
 
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo}/>
@@ -193,6 +195,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const educations: EducationType[] = await fetchEducation();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
+  const resumeURL: String = await fetchResume();
+
 
   return {
     props: {
@@ -201,7 +205,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       experiences,
       educations,
       projects,
-      socials
+      socials,
+      resumeURL
     },
     // next.js will attempt to re-generate the page: 
     // - when a request comes in

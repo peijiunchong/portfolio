@@ -13,6 +13,14 @@ interface Image {
     }
 }
 
+interface File {
+    _type: "file"
+    asset:{
+        _ref: string
+        _type: "reference"
+    }
+}
+
 export interface PageInfo extends SanityBody {
     _type: "pageInfo";
     address: string;
@@ -22,6 +30,7 @@ export interface PageInfo extends SanityBody {
     name: string;
     phoneNumber: string;
     profilePic: Image;
+    resume: File;
 }
 
 export interface Technology extends SanityBody {
@@ -47,6 +56,7 @@ export interface Education extends SanityBody {
     dateEnded: Date;
     isCurrentlyStudyingHere: boolean;
     points: string[];
+    priority: Number;
 }
 
 export interface Experience extends SanityBody {
@@ -59,6 +69,7 @@ export interface Experience extends SanityBody {
     jobTitle: string;
     points: string[];
     technologies: Technology[];
+    priority: Number;
 }
 
 export interface Project extends SanityBody {
@@ -68,6 +79,7 @@ export interface Project extends SanityBody {
     linkToBuild: string;
     summary: string;
     technologies: Technology[];
+    priority: Number;
 }
 
 export interface Social extends SanityBody {

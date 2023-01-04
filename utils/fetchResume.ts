@@ -1,12 +1,12 @@
 export const fetchResume = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getResume `);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getResume`);
 
-    const data = await res.json()
-    
-    const resumeURL: String = data.resumeURL;
+    // const data = await res.json()
 
-    console.log("fetching", resumeURL);
+    // const resumeURL: String = data.URL;
 
-    return resumeURL;
+    // console.log("fetching", resumeURL);
+
+    return "resumeURL";
     
 }

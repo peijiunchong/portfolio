@@ -4,7 +4,7 @@ import { sanityClient } from "../../sanity";
 
 const query = groq`
     *[_type == 'pageInfo'][0] {
-        "resumeURL": resume.asset -> url
+        "URL": resume.asset -> url
     }
 `
 

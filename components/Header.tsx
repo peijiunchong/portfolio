@@ -9,7 +9,9 @@ type Props = {
     resumeURL: String;
 }
 
-function Header({socials, resumeURL}:Props) {
+function Header({socials, /*resumeURL*/}:Props) {
+
+    const resumeURL = "https://cdn.sanity.io/files/vk9q14rg/production/1df1beae9114eb08759fc2fbed0fba8bf6e882fd.pdf"
 
   return (
     <header className='sticky top-0 mx-auto flex items-start justify-between max-w-7xl p-5 z-20 xl:items-center'>

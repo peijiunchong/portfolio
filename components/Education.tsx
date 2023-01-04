@@ -27,7 +27,7 @@ function Education({educations}:Props) {
                             items-center justify-evenly p-20 md:p-44" key={i}>
                                 <div className="mt-10 sm:pr-8 flex flex-col items-center text-center">
                                     { education.schoolImage && (
-                                        <img src={urlFor(education?.schoolImage).url()} alt="" className=" h-56 w-96 p-2"/>
+                                        <img src={urlFor(education?.schoolImage).url()} alt="" className="h-64 w-80 p-2"/>
                                     )}
                                     <h4 className='text-5xl font-semibold text-center py-8'>
                                         {education.courseTitle} 

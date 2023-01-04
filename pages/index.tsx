@@ -17,8 +17,6 @@ import { fetchSocials } from "../utils/fetchSocials";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchEducation } from "../utils/fetchEducation";
 import { FiArrowUp } from "react-icons/fi";
-import { sanityClient } from "../sanity";
-import groq from "groq";
 
 type Props = {
   pageInfo: PageInfo;

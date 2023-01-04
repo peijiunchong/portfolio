@@ -4,7 +4,6 @@ import groq from "groq";
 
 export const fetchPageInfo = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`);
-    // const {data:response} = await sanityClient.fetch(groq`*[_type == 'pageInfo'] [0]`);
 
     console.log("helloooooooooooo", res);
 

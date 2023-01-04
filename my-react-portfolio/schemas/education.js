@@ -19,6 +19,11 @@ export default defineType({
       }
     },
     {
+      name: 'priority',
+      title: 'Priority',
+      type: 'number'
+    },
+    {
       name: 'school',
       title: 'School',
       type: 'string'

@@ -6,8 +6,6 @@ export const fetchEducation = async () => {
     const data = await res.json()
     const educations: Education[] = data.educations;
 
-    console.log("fetching", educations);
-
     return educations;
     
 }

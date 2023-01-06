@@ -31,8 +31,8 @@ type Props = {
 
 const Home = ({pageInfo, educations, experiences, skills, projects, socials, resumeURL}:Props) => {
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
-    scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="bg-[#F5EBE0] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
+    scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80">
       <Head>
         <title>CPJ's Portfolio</title>
       </Head>
@@ -70,7 +70,7 @@ const Home = ({pageInfo, educations, experiences, skills, projects, socials, res
       <Link href="#hero" className="snap-center">
         <footer className="sticky top-0 bottom-5 w-full cursor-pointer z-20">
           <div className="flex items-center justify-center">
-          <FiArrowUp className="h-10 w-10 rounded-full filter text-gray-600 hover:text-white cursor-pointer"/>
+          <FiArrowUp className="h-10 w-10 rounded-full filter text-[#665A48] hover:text-gray-400 cursor-pointer"/>
           </div>
         </footer>
       </Link>

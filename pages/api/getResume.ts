@@ -17,6 +17,6 @@ export default async function handler(
     res:NextApiResponse<Data>) 
 {
     const resumeURL = await sanityClient.fetch(query);
-
+    
     res.status(200).json({ resumeURL })
 }

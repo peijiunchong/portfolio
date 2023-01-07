@@ -14,6 +14,7 @@ function Hero({pageInfo}: Props) {
         words: [
           `Hi, my name's ${pageInfo?.name}`,
           'Not a coffee person :D',
+          "Sleeping is my only way to cure tiredness",
           'Likes being alone =)'
         ],
         loop: true,
@@ -30,8 +31,8 @@ function Hero({pageInfo}: Props) {
           alt=""/>
         )}
         <div className='z-20'>
-          <h2 className='text-base uppercase text-[#665A48] pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
-          <h1 className='text-5xl lg:text-6xl font-semibold px-10 text-[#665A48]'>
+          <h2 className='text-base uppercase text-[#665A48] dark:text-[#CDFCF6] pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
+          <h1 className='text-5xl lg:text-6xl font-semibold dark:text-[#CDFCF6] px-10 text-[#665A48]'>
               <span>{text}</span>
               <Cursor cursorColor="#F08080"></Cursor>
           </h1>

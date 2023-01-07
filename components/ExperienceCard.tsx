@@ -10,7 +10,7 @@ type Props = {
 function ExperienceCard({experience}: Props) {
   return (
     <article className='flex flex-col rounded-lg items-center space-y-10 flex-shrink-0
-    w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#F5EBE0] pt-10 opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden'>
+    w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#F5EBE0] dark:bg-[#3F3B6C] pt-5 opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden'>
         <motion.div 
             initial={{y:-100, opacity:0}}
             transition={{duration:1.2}}
@@ -22,7 +22,7 @@ function ExperienceCard({experience}: Props) {
         </motion.div>
 
         <div className='px-0 md:px-10'>
-            <h4 className='text-2xl font-bold py-2 text-[#665A48]'>{experience?.jobTitle}</h4>
+            <h4 className='text-xl font-bold py-2 text-[#665A48] dark:text-[#AAC4FF]/80 tracking-[5px]'>{experience?.jobTitle}</h4>
             <div className='flex space-x-2 my-2'>
                 {
                     experience.technologies?.map((technology, i) => {
@@ -37,12 +37,12 @@ function ExperienceCard({experience}: Props) {
                 }
             </div>
             
-            <p className='uppercase italic py-5 text-[#9F8772]'>{experience?.comapnyName} ({new Date(experience.dateStarted).toDateString()} - {experience.isCurrentlyWorkingHere? "Present" : new Date(experience.dateEnded).toDateString()})</p>
+            <p className='uppercase italic py-5 text-[#9F8772] dark:text-[#B9E0FF]'>{experience?.comapnyName} ({new Date(experience.dateStarted).toDateString()} - {experience.isCurrentlyWorkingHere? "Present" : new Date(experience.dateEnded).toDateString()})</p>
             <div className=' overflow-y-auto h-80 scrollbar pr-5 scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80'>
                 <ul className='list-disc space-y-4 ml-5 text-lg w-4/5'>
                     {
                         experience.points?.map((summaryPoint, i) => (
-                            <li key={i} className="text-[#DBA39A] font-semibold">{summaryPoint}</li>
+                            <li key={i} className="text-[#DBA39A] dark:text-[#9F73AB] font-semibold">{summaryPoint}</li>
                         ))
                     }
                 </ul>

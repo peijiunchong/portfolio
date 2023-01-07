@@ -30,79 +30,80 @@ type Props = {
 }
 
 const Home = ({pageInfo, educations, experiences, skills, projects, socials, resumeURL}:Props) => {
+
   return (
-    <div className="bg-[#F5EBE0] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
-    scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80">
-      <Head>
-        <title>CPJ's Portfolio</title>
-      </Head>
+      <div className="bg-[#F5EBE0] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
+      scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80 dark:bg-[#3F3B6C]">
+        <Head>
+          <title>CPJ's Portfolio</title>
+        </Head>
 
-      <Header socials={socials} resumeURL={resumeURL}/>
+        <Header socials={socials} resumeURL={resumeURL}/>
 
-      <section id="hero" className="snap-start">
-        <Hero pageInfo={pageInfo}/>
-      </section>
+        <section id="hero" className="snap-start">
+          <Hero pageInfo={pageInfo}/>
+        </section>
 
-      <section id="about" className="snap-center">
-        <About pageInfo={pageInfo}/>
-      </section>
+        <section id="about" className="snap-center">
+          <About pageInfo={pageInfo}/>
+        </section>
 
-      <section id="education" className="snap-center">
-        <Education educations={educations}/>
-      </section>
+        <section id="education" className="snap-center">
+          <Education educations={educations}/>
+        </section>
 
-      <section id="experience" className="snap-center">
-        <WorkExperience experiences={experiences}/> 
-      </section>
+        <section id="experience" className="snap-center">
+          <WorkExperience experiences={experiences}/> 
+        </section>
 
-      <section id="skills" className="snap-center">
-        <Skills skills={skills}/>
-      </section>
+        <section id="skills" className="snap-center">
+          <Skills skills={skills}/>
+        </section>
 
-      <section id="projects" className="snap-center">
-        <Projects projects={projects} />
-      </section>
+        <section id="projects" className="snap-center">
+          <Projects projects={projects} />
+        </section>
 
-      <section id="contact" className="snap-center">
-        <ContactMe></ContactMe>
-      </section>
+        <section id="contact" className="snap-center">
+          <ContactMe></ContactMe>
+        </section>
 
-      <Link href="#hero" className="snap-center">
-        <footer className="sticky top-0 bottom-5 w-full cursor-pointer z-20">
-          <div className="flex items-center justify-center">
-          <FiArrowUp className="h-10 w-10 rounded-full filter text-[#665A48] hover:text-gray-400 cursor-pointer"/>
-          </div>
-        </footer>
-      </Link>
+        <Link href="#hero" className="snap-center">
+          <footer className="sticky top-0 bottom-5 w-full cursor-pointer z-20">
+            <div className="flex items-center justify-center">
+            <FiArrowUp className="h-10 w-10 rounded-full filter text-[#665A48] dark:text-[#CDFCF6] hover:text-gray-400 dark:hover:text-[#665A48] cursor-pointer"/>
+            </div>
+          </footer>
+        </Link>
 
       {/* <main className=" bg-ivory-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <section className="min-h-screen">
-          <nav className="py-10 mb-12 flex justify-between text-gray-600 dark:text-white">
-            <div className="text-4xl flex justify-center gap-10 py-3 text-red-200 dark:text-gray-400">
-              <a href="https://github.com/peijiunchong"><AiFillGithub className="cursor-pointer hover:text-dusty-rose dark:hover:text-white"/></a>
-              <a href="https://www.linkedin.com/in/peijiun/"><AiFillLinkedin className="cursor-pointer hover:text-dusty-rose dark:hover:text-white" /></a>
-              <a href= "mailto:peijiunchong@gmail.com"><AiFillMail className="cursor-pointer hover:text-dusty-rose dark:hover:text-white" /></a>
-            </div>
-            <ul className="flex items-center">
-              <li>
-                <BsFillMoonStarsFill
-                  onClick={() => setDarkMode(!darkMode)}
-                  className=" cursor-pointer text-2xl"
-                />
-              </li>
-              <li>
-                <a
-                  className="bg-gradient-to-r from-red-200 to-red-300 dark:bg-gradient-to-l font-bold px-4 py-2 border-none rounded-md ml-8"
+        <nav className="py-10 mb-12 flex justify-between text-gray-600 dark:text-white">
+        <div className="text-4xl flex justify-center gap-10 py-3 text-red-200 dark:text-gray-400">
+        <a href="https://github.com/peijiunchong"><AiFillGithub className="cursor-pointer hover:text-dusty-rose dark:hover:text-white"/></a>
+        <a href="https://www.linkedin.com/in/peijiun/"><AiFillLinkedin className="cursor-pointer hover:text-dusty-rose dark:hover:text-white" /></a>
+        <a href= "mailto:peijiunchong@gmail.com"><AiFillMail className="cursor-pointer hover:text-dusty-rose dark:hover:text-white" /></a>
+        </div>
+        <ul className="flex items-center">
+        <li>
+        <BsFillMoonStarsFill
+        onClick={() => setDarkMode(!darkMode)}
+        className=" cursor-pointer text-2xl"
+        />
+        </li>
+        <li>
+        <a
+        className="bg-gradient-to-r from-red-200 to-red-300 dark:bg-gradient-to-l font-bold px-4 py-2 border-none rounded-md ml-8"
                   href="#"
                 >
-                  Resume
+                Resume
                 </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="flex justify-around py-10">
-            <div className="mx-10 bg-gradient-to-b from-azure rounded-full w-80 h-80 relative overflow-hidden md:h-96 md:w-96">
-              <Image src={profilePic} layout="fill" objectFit="cover" />
+                </li>
+                </ul>
+                </nav>
+                <div className="flex justify-around py-10">
+                <div className="mx-10 bg-gradient-to-b from-azure rounded-full w-80 h-80 relative overflow-hidden md:h-96 md:w-96">
+                <Image src={profilePic} layout="fill" objectFit="cover" />
             </div>
             <div>
               <h2 className="text-5xl py-4 text-azure font-medium dark:text-teal-400 md:text-6xl">

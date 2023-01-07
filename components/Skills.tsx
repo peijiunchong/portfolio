@@ -16,8 +16,8 @@ function Skills({skills}:Props) {
         whileInView={{opacity:1}}
         transition={{duration:1.5}}
     >
-        <h3 className='absolute top-24 uppercase tracking-[20px] text-[#DBA39A] text-2xl'>Skills</h3>
-        <h3 className='absolute top-36 uppercase tracking-[3px] text-[#665A48] text-sm'>
+        <h3 className='absolute top-24 uppercase tracking-[20px] text-[#DBA39A] dark:text-[#DBA39A] text-2xl'>Skills</h3>
+        <h3 className='absolute top-36 uppercase tracking-[3px] text-[#665A48] text-sm dark:text-[#AAC4FF]/80'>
             Hover over a skill for currency profieciency
         </h3>
 

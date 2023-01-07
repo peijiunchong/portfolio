@@ -5,8 +5,6 @@ export const fetchResume = async () => {
 
     const resumeURL: String = data.resumeURL.URL;
 
-    console.log("fetching", resumeURL);
-
     return resumeURL;
     
 }

@@ -37,7 +37,7 @@ function About({pageInfo}: Props) {
             className='space-y-10 px-10 py-auto md:px-10 md:max-h-96 md:max-w-96
             overflow-y-auto scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/40 scrollbar-thin'
         >
-            <h4 className='text-4xl text-[#665A48] dark:text-[#AAC4FF]/80 font-semibold'>Here's a <span className='underline decoration-[#9F73AB]'>little</span> background</h4>
+            <h4 className='text-4xl text-[#665A48] dark:text-[#AAC4FF]/80 font-semibold'>Here's a <span className='underline decoration-[#DBA39A] dark:decoration-[#9F73AB] '>little</span> background</h4>
             <p className='text-xl text-[#9F8772] dark:text-[#B9E0FF] md:text-lg'>{pageInfo?.backgroundInformation}</p>
         </motion.div>
     </div>

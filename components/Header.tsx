@@ -40,11 +40,6 @@ function Header({socials, resumeURL}:Props) {
             className='flex flex-row items-center text-[#665A48] cursor-pointer'
         >
             <BsFillMoonStarsFill onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className='iconButton'/> 
-            {/* {
-                theme === 'dark' 
-                    ? <BsFillSunFill onClick={() => setTheme('light')} className='iconButton'/> 
-                    : <BsFillMoonStarsFill onClick={() => setTheme('dark')} className='iconButton'/>
-            } */}
 
             <SocialIcon className='cursor-pointer' network='email' fgColor='#C7BCA1' bgColor='transparent'/>
             <Link href="#contact">

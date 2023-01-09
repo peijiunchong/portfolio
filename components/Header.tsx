@@ -25,7 +25,7 @@ function Header({socials, resumeURL}:Props) {
         >  
             {
                 socials?.map((social) => (
-                    <SocialIcon key={social._id} url={social.url} fgColor='#C7BCA1' bgColor='transparent'/>
+                    <SocialIcon key={social._id} url={social.url} target="_blank" fgColor='#C7BCA1' bgColor='transparent'/>
                 ))
             }
             {

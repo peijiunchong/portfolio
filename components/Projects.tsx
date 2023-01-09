@@ -32,13 +32,13 @@ function Projects({projects}: Props) {
                             >
                                 {
                                     project.image && (
-                                        <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-80 mt-5'/>
+                                        <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-80 mt-5 max-md:mt-16 max-md:h-64'/>
                                     )
                                 }
                             </motion.div>
 
                             <div className='space-y-10 md:px-10 max-w-6xl'>
-                                <h4 className='text-4xl md:text-2xl font-semibold text-center text-[#665A48] dark:text-[#AAC4FF]/80'>
+                                <h4 className='text-4xl max-md:text-xl font-semibold text-center text-[#665A48] dark:text-[#AAC4FF]/80'>
                                     <a href={project.linkToBuild} 
                                        target="_blank"
                                        className='underline decoration-[#9F8772]/50 dark:decoration-[#9F73AB] cursor-pointer '>
@@ -47,7 +47,7 @@ function Projects({projects}: Props) {
                                         {project.title}
                                 </h4>
 
-                                <p className='md:text-lg text-lg font-semibold text-center max-md:text-left text-[#DBA39A] dark:text-[#B9E0FF]'>
+                                <p className='max-md:text-base text-lg font-semibold text-center max-md:text-left text-[#DBA39A] dark:text-[#B9E0FF]'>
                                     {project.summary}
                                 </p>
                             </div>

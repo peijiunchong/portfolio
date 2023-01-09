@@ -24,15 +24,15 @@ function Education({educations}:Props) {
                     {
                         educations?.map((education, i) => (
                             <li className="w-screen flex-shrink-0 snap-center flex flex-col space-y-10
-                            items-center justify-evenly p-20 max-md:p-44" key={i}>
+                            items-center justify-evenly p-20 max-md:p-14 max-md:mt-5" key={i}>
                                 <div className="mt-10 sm:pr-8 flex flex-col items-center text-center">
                                     { education.schoolImage && (
-                                        <img src={urlFor(education?.schoolImage).url()} alt="" className="h-64 w-80 p-5 mt-10 max-md:h-96 max-md:w-56 bg-[#F5EBE0] "/>
+                                        <img src={urlFor(education?.schoolImage).url()} alt="" className="h-64 w-80 p-5 mt-10 max-md:h-32 max-md:w-56 bg-[#F5EBE0] "/>
                                     )}
-                                    <h4 className='text-5xl font-semibold text-center py-5 text-[#665A48] dark:text-[#AAC4FF]/80'>
+                                    <h4 className='text-5xl max-md:text-2xl font-semibold text-center py-5 text-[#665A48] dark:text-[#AAC4FF]/80'>
                                         {education.courseTitle} 
                                     </h4>
-                                    <h5 className='text-2xl italic text-center pb-6 text-[#9F8772] dark:text-[#B9E0FF]'>
+                                    <h5 className='text-2xl max-md:text-xl italic text-center pb-6 text-[#9F8772] dark:text-[#B9E0FF]'>
                                         {education.school.toUpperCase()} ( {new Date(education.dateStarted).getFullYear().toString()} - {education.isCurrentlyStudyingHere ? "Present" : new Date(education.dateEnded).getFullYear().toString()} )
                                     </h5>
                                     <div className=' overflow-y-auto h-80 scrollbar pr-5 scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80'>

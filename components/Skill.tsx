@@ -13,7 +13,7 @@ type Props = {
 function Skill({directionLeft, skill}: Props) {
   return (
     <motion.div
-        className='group relative flex cursor-pointer'
+        className='group relative flex cursor-pointer '
         initial={{
             x: directionLeft? -200 : 200,
             opacity:0
@@ -27,7 +27,7 @@ function Skill({directionLeft, skill}: Props) {
                     alt=""
                     src={urlFor(skill?.image).url()} 
                     className="rounded-full border border-gray=500 object-cover w-24 h-24 xl:w-32 xl:h-32 
-                               filter group-hover:grayscale transition duration-300"
+                               filter group-hover:grayscale transition duration-300 max-md:w-20 max-md:h-20"
                 />
             )
         }

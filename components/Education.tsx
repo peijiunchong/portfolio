@@ -35,7 +35,7 @@ function Education({educations}:Props) {
                                     <h5 className='text-2xl max-md:text-xl italic text-center pb-6 text-[#9F8772] dark:text-[#B9E0FF]'>
                                         {education.school.toUpperCase()} ( {new Date(education.dateStarted).getFullYear().toString()} - {education.isCurrentlyStudyingHere ? "Present" : new Date(education.dateEnded).getFullYear().toString()} )
                                     </h5>
-                                    <div className=' overflow-y-auto h-80 scrollbar scrollbar-thin pr-5 scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80'>
+                                    <div className=' overflow-y-auto h-80 scrollbar-thin pr-5 scrollbar-track-gray-400/20 scrollbar-thumb-[#DBA39A]/80'>
                                         <ul className='list-disc space-y-4 ml-5 text-lg'>
                                             {
                                                 education.points?.map((point, i) => (

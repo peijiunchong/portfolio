@@ -71,7 +71,7 @@ const Home = ({pageInfo, educations, experiences, skills, projects, socials, res
         <Link href="#hero" className="snap-center">
           <footer className="sticky top-0 bottom-5 w-full cursor-pointer z-20">
             <div className="flex items-center justify-center">
-            <FiArrowUp className="h-10 w-10 rounded-full filter text-[#665A48] dark:text-[#CDFCF6] hover:text-gray-400 dark:hover:text-[#665A48] cursor-pointer"/>
+            <FiArrowUp className="h-10 w-10 rounded-full filter text-[#665A48] dark:text-[#C7BCA1] hover:text-gray-400 dark:hover:text-[#665A48] cursor-pointer"/>
             </div>
           </footer>
         </Link>

@@ -32,17 +32,17 @@ function Projects({projects}: Props) {
                             >
                                 {
                                     project.image && (
-                                        <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-80 mt-5 max-md:mt-16 max-md:h-64'/>
+                                        <img src={urlFor(project?.image).url()} alt="" className='w-7/8 h-80 mt-10 max-md:mt-16 max-md:h-64'/>
                                     )
                                 }
                             </motion.div>
 
                             <div className='space-y-10 md:px-10 max-w-6xl'>
-                                <h4 className='text-4xl max-md:text-xl font-semibold text-center text-[#665A48] dark:text-[#AAC4FF]/80'>
+                                <h4 className='text-3xl max-md:text-lg font-semibold text-center text-[#665A48] dark:text-[#AAC4FF]/80'>
                                     <a href={project.linkToBuild} 
                                        target="_blank"
                                        className='underline decoration-[#9F8772]/50 dark:decoration-[#9F73AB] cursor-pointer '>
-                                        Case Study {i+1} of {projects.length}: 
+                                        Projects {i+1} of {projects.length}: 
                                     </a>
                                         {project.title}
                                 </h4>
@@ -57,8 +57,8 @@ function Projects({projects}: Props) {
                 
             </div>
 
-            <div className='w-full absolute bg-[#EDE4E0] dark:bg-[#BCCEF8]/10 left-0 h-[500px] skew-y-12'/>
-            <div className='w-full absolute top-[30%] bg-[#EDE4E0] dark:bg-[#BCCEF8]/10 left-0 h-[500px] -skew-y-12'/>
+            {/* <div className='w-full absolute bg-[#EDE4E0] dark:bg-[#BCCEF8]/10 left-0 h-[500px] skew-y-12'/>
+            <div className='w-full absolute top-[30%] bg-[#EDE4E0] dark:bg-[#BCCEF8]/10 left-0 h-[500px] -skew-y-12'/> */}
         </motion.div>
     )
 }

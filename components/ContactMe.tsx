@@ -12,18 +12,14 @@ function ContactMe() {
 
   return (
     <div className='h-screen flex relative flex-col text-center md:text-left md:flex-rowmax-w-7xl px-10 justify-evenly mx-auto items-center'>
-        <h3 className='absolute top-24 uppercase tracking-[20px] text-[#DBA39A] dark:text-[#DBA39A] text-2xl'>Contact</h3>
+        <h3 className='absolute top-24 uppercase tracking-[20px] text-[#DBA39A] dark:text-[#DBA39A] text-2xl'>Contact me</h3>
 
         <div className='flex flex-col space-y-10'>
-            <h4 className='text-4xl font-semibold text-center text-[#9F8772] dark:text-[#AAC4FF]/80'>
-                I have got just what you need.{" "}
-                <span className='decoration-[#9F8772]/50 dark:decoration-[#9F73AB] underline'>Lets Talk.</span>
-            </h4>
 
             <div className='space-y-10 '>
                 <div className='flex items-center space-x-5 justify-center'>
                     <PhoneIcon className='text-[#DBA39A] dark:text-[#9F73AB] h-7 w-7 animate-pulse'/>
-                    <p className='text-2xl text-[#9F8772] dark:text-[#B9E0FF]'>123456789</p>
+                    <p className='text-2xl text-[#9F8772] dark:text-[#B9E0FF]'>012-3091970</p>
                 </div>
 
                 <div className='flex items-center space-x-5 justify-center'>
